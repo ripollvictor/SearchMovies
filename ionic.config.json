@@ -1,0 +1,7 @@
+{
+  "name": "SearchMovies",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
