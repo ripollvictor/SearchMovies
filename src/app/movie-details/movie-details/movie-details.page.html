@@ -11,12 +11,31 @@
   <ion-card>
     <ion-img src="{{movie.Poster}}"></ion-img>
     <ion-card-header>
-      <ion-card-subtitle>{{movie.Type}} - {{movie.Year}}</ion-card-subtitle>
+      <ion-card-subtitle>{{movie.Year}}</ion-card-subtitle>
       <ion-card-title>{{movie.Title}}</ion-card-title>
     </ion-card-header>
     
     <ion-card-content>{{movie.Plot}}</ion-card-content>
+    <ion-card-content>Actors: {{movie.Actors}}</ion-card-content>
 
+    <ion-chip outline color="primary">
+      <ion-label>{{movie.Runtime}}</ion-label>
+    </ion-chip>
+    <ion-chip outline color="secondary">
+      <ion-label>{{movie.Language}}</ion-label>
+    </ion-chip>
+    <ion-chip outline color="tertiary">
+      <ion-label>{{movie.imdbRating}}/10</ion-label>
+    </ion-chip>
+    <ion-chip outline color="success">
+      <ion-label>{{movie.Released}}</ion-label>
+    </ion-chip>
+    <ion-chip outline color="warning">
+      <ion-label>{{movie.Rated}}</ion-label>
+    </ion-chip>
+    <ion-chip outline color="danger">
+      <ion-label>{{movie.Director}}</ion-label>
+    </ion-chip>
   </ion-card>
 
 </ion-content>
