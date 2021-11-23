@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { ApiService } from '../api/api-service.service';
+import { Movie } from '../movie/movie';
+
 
 @Component({
   selector: 'app-home',
@@ -7,6 +11,24 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  movies: Movie[];
+  inputValue: string = "Batman";
 
+  constructor(private movieService: ApiService) { }
+
+  onChange($event) {
+    clearTimeout(id);
+    var id = setTimeout(() => {
+      this.movieService.getMovies(this.inputValue).subscribe(result => {
+        this.movies = result.Search;
+      });
+    }, 1000);
+
+  }
+  ngOnInit() {
+    this.movieService.getMovies(this.inputValue).subscribe(result => {
+      this.movies = result.Search;
+    });
+
+  }
 }
