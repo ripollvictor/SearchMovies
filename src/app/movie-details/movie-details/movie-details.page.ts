@@ -10,7 +10,7 @@ import { MovieDetail } from 'src/app/movie/movie-detail';
 })
 export class MovieDetailsPage implements OnInit {
 
-  movie: MovieDetail = null;
+  movie: MovieDetail;
 
   constructor(
     private movieService: ApiService,

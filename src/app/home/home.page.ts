@@ -12,18 +12,15 @@ import { Movie } from '../movie/movie';
 export class HomePage {
 
   movies: Movie[];
-  inputValue: string = "Batman";
-
+  inputValue: string = 'Batman';
   constructor(private movieService: ApiService) { }
 
   onChange($event) {
-    clearTimeout(id);
-    var id = setTimeout(() => {
+    let id = setTimeout(() => {
       this.movieService.getMovies(this.inputValue).subscribe(result => {
         this.movies = result.Search;
       });
     }, 1000);
-
   }
   ngOnInit() {
     this.movieService.getMovies(this.inputValue).subscribe(result => {

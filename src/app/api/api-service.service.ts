@@ -13,17 +13,17 @@ export type ApiResponse = {
   providedIn: 'root'
 })
 export class ApiService {
-  apiURL: string = 'http://www.omdbapi.com/?apikey=a1069bdd';
+  
+  apiURL = 'http://www.omdbapi.com/?apikey=a1069bdd';
 
   constructor(private http:HttpClient) { }
+
   getMovies(name:string) {
-    let url=`${this.apiURL}&s=${name}`;
-    return this.http.get<ApiResponse>(url);
+    return this.http.get<ApiResponse>(`${this.apiURL}&s=${name}`);
   }
   
   getMovieDetails(id:string) {
-    let url=`${this.apiURL}&i=${id}`;
-    return this.http.get<MovieDetail>(url);
+    return this.http.get<MovieDetail>(`${this.apiURL}&i=${id}`);
   }
 }
 
