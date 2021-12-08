@@ -17,10 +17,8 @@ export class MovieDetailsPage implements OnInit {
     private activatedRoute: ActivatedRoute
   ) { }
 
-  ngOnInit() {
-    this.movieService.getMovieDetails(this.activatedRoute.snapshot.params.id).subscribe(result => {
-      this.movie = result;
-    });
+  async ngOnInit() {
+    this.movie = await this.movieService.getMovieDetails(this.activatedRoute.snapshot.params.id).toPromise();
   }
 
 }

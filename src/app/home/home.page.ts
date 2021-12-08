@@ -15,17 +15,10 @@ export class HomePage {
   inputValue: string = 'Batman';
   constructor(private movieService: ApiService) { }
 
-  onChange($event) {
-    let id = setTimeout(() => {
-      this.movieService.getMovies(this.inputValue).subscribe(result => {
-        this.movies = result.Search;
-      });
-    }, 1000);
+  async onChange($event) {
+    this.movies = (await this.movieService.getMovies(this.inputValue).toPromise()).Search;
   }
-  ngOnInit() {
-    this.movieService.getMovies(this.inputValue).subscribe(result => {
-      this.movies = result.Search;
-    });
-
+  async ngOnInit() {
+    this.movies = (await this.movieService.getMovies(this.inputValue).toPromise()).Search;
   }
 }

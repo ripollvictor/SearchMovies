@@ -14,7 +14,7 @@
   </ion-header>
   <ion-item>
     <ion-label position="floating">Buscar pelicula</ion-label>
-    <ion-input type="text" [(ngModel)]="inputValue" (keypress)="onChange($event)"></ion-input>
+    <ion-input type="text" [(ngModel)]="inputValue" (keyup)="onChange($event)"></ion-input>
   </ion-item>
   <ion-list>
     <ion-list-header>
